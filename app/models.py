@@ -20,12 +20,12 @@ def gen_id():
 class Users(db.Model):
     __tablename__ = 'user'
     name = db.Column(db.String(40), unique=True, nullable=False)
-    pwd = db.Column(db.String(20), unique=True, nullable=False)
+    pwd = db.Column(db.String(20), unique=False, nullable=False)
     phone = db.Column(db.String(20), unique=True, index=True)
     email = db.Column(db.String(50), unique=True, index=True)
     idcard = db.Column(db.String(20), unique=True, index=True,primary_key=True)
-    address = db.Column(db.String(100), unique=True, index=True)
-    province = db.Column(db.String(10), unique=True, index=True)
+    address = db.Column(db.String(100), unique=False, index=True)
+    province = db.Column(db.String(10), unique=False, index=True)
     username = db.Column(db.String(20), unique=True, index=True)
 
     def __init__(self, name, pwd, phone, email, idcard, address, province,username):

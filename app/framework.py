@@ -32,9 +32,8 @@ def a():
             session['email'] = form.email.data
             session['name']=user.name
             flash('登录成功!','success')
-            # db.session['email'] = form.email.data
         else:
-            flash('登录失败！请重新输入账号密码')
+            flash('登录失败！请重新输入账号密码','warning')
     return render_template('a.html', title='Login', form=form)
 
 @login.route("/homeAdmin")
@@ -96,7 +95,6 @@ def register():
 @login.route("/forget", methods=['GET', 'POST'])
 def forget():
     form = pswForm()
-    # if form.idcard.data
     if form.validate_on_submit():
         user = Users.query.filter_by(email=form.email.data).all()
         if user:
